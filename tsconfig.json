@@ -1,37 +1,16 @@
 {
-  "include": ["src"],
   "compilerOptions": {
-    "strict": true,
-    "module": "esnext",
-    "target": "es5",
-    "esModuleInterop": true,
-    "moduleResolution": "node",
-    "baseUrl": "./",
-    "skipLibCheck": true,
-    "declaration": false,
-    "lib": ["esnext","dom"],
-    "jsx": "react",
-    "forceConsistentCasingInFileNames": true,
-    "allowSyntheticDefaultImports": true,
+    "target": "es6",
     "allowJs": true,
-    "importHelpers": true,
-    "sourceMap": true,
-    "rootDir": "./src",
-    "noUnusedLocals": true,
-    "noUnusedParameters": false,
-    "noImplicitReturns": false,
-    "noFallthroughCasesInSwitch": true,
-    "paths": {
-      "*": ["src/*", "node_modules/*"]
-    },
+    "skipLibCheck": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "jsx": "react-jsx",
+    "jsxImportSource": "@emotion/react",
+    "outDir": "dist",
+    "declaration": true
   },
-  "typedocOptions": {
-    "inputFiles": ["./src/index.d.ts"],
-    "mode": "file",
-    "json": "typedoc.json",
-    "excludeExternals": true,
-    "externalPattern": "**/node_modules/**",
-    "ignoreCompilerErrors": true,
-    "includeDeclarations": true,
-  }
+  "include": ["./src/**/*"]
 }

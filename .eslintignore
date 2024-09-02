@@ -1,3 +1,2 @@
 dist/
-typedoc.json
-tsdx.config.js
+babel.config.js

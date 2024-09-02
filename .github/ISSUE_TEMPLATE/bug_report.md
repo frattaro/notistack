@@ -1,7 +1,6 @@
 ---
 name: Bug report
 about: Create a bug report to help us improve notistack
-
 ---
 
 <!--- Provide a general summary of the issue in the Title above -->
@@ -12,16 +11,19 @@ about: Create a bug report to help us improve notistack
 -->
 
 ## Expected Behavior
+
 <!---
     Describe what should happen.
 -->
 
 ## Current Behavior
+
 <!---
     Describe what happens instead of the expected behavior.
 -->
 
 ## Steps to Reproduce
+
 <!---
     Provide a link to a live example (you can use codesandbox.io) and an unambiguous set of steps to reproduce this bug.
     Include code to reproduce, if relevant (which it most likely is).
@@ -31,6 +33,7 @@ about: Create a bug report to help us improve notistack
 
     If YOU DO NOT take time to provide a codesandbox.io reproduction, should the COMMUNITY take time to help you?
 -->
+
 Link:
 
 1.
@@ -39,23 +42,25 @@ Link:
 4.
 
 ## Context
+
 <!---
     What are you trying to accomplish? How has this issue affected you?
     Providing context helps us come up with a solution that is most useful in the real world.
 -->
 
 ## Your Environment
+
 <!---
     Include as many relevant details about the environment with which you experienced the bug.
     If you encounter issues with typescript please include version and tsconfig.
 -->
 
-| Tech         | Version |
-|--------------|---------|
+| Tech      | Version |
+| --------- | ------- |
 | Notistack | v1.?.?  |
-| React        |         |
-| Browser      |         |
-| etc.         |         |
+| React     |         |
+| Browser   |         |
+| etc.      |         |
 
 <!---
     Issue template from Material-ui
