@@ -1,8 +1,8 @@
 import Slide from "@mui/material/Slide";
 import { SnackbarClassKey } from "@mui/material/Snackbar";
 
-import { SnackbarItemProps } from "../SnackbarItem";
-import { Snack } from "../SnackbarProvider";
+import { SnackbarItemProps } from "./SnackbarItem";
+import { Snack } from "./SnackbarProvider";
 import {
   CloseReason,
   ContainerClassKey,
@@ -10,7 +10,7 @@ import {
   SnackbarProviderProps,
   VariantClassKey,
   VariantType
-} from "../types";
+} from "./types";
 
 export const allClasses: {
   mui: Record<SnackbarClassKey, object>;

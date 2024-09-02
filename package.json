@@ -19,7 +19,7 @@
   "scripts": {
     "build": "npm run clean && tsc --project tsconfig.json",
     "clean": "rimraf dist",
-    "publish-package": "npm run build && npm run publish",
+    "publish-package": "npm run build && npm publish",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "test": "npm run lint"
   },
