@@ -1,9 +1,8 @@
 src
-examples
 .github
-.babelrc
-.eslintrc.js
+.eslintrc.json
 .eslintignore
 .gitignore
-webpack.config.js
+.prettierrc.js
+babel.config.js
 tsconfig.json
