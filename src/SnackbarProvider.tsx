@@ -198,9 +198,8 @@ export class SnackbarProvider extends Component<SnackbarProviderProps, State> {
           };
         }
 
-        if (item.onClose) item.onClose(null, REASONS.MAXSNACK, item.key);
-        if (this.props.onClose)
-          this.props.onClose(null, REASONS.MAXSNACK, item.key);
+        item.onClose?.(null, REASONS.MAXSNACK, item.key);
+        this.props.onClose?.(null, REASONS.MAXSNACK, item.key);
 
         return {
           ...item,
@@ -266,8 +265,8 @@ export class SnackbarProvider extends Component<SnackbarProviderProps, State> {
   closeSnackbar: ProviderContext["closeSnackbar"] = (key) => {
     // call individual snackbar onClose callback passed through options parameter
     const toBeClosed = this.state.snacks.find((item) => item.key === key);
-    if (isDefined(key) && toBeClosed && toBeClosed.onClose) {
-      toBeClosed.onClose(null, REASONS.INSTRUCTED, key);
+    if (isDefined(key)) {
+      toBeClosed?.onClose?.(null, REASONS.INSTRUCTED, key);
     }
 
     this.handleCloseSnack(null, REASONS.INSTRUCTED, key);
@@ -358,7 +357,7 @@ export class SnackbarProvider extends Component<SnackbarProviderProps, State> {
               }}
               onEntered={(node, isAppearing, key) => {
                 this.handleEnteredSnack(node, isAppearing, key);
-                this.props.onEntered(node, isAppearing, key);
+                this.props.onEntered?.(node, isAppearing, key);
               }}
             />
           ))}

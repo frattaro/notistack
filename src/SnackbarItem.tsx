@@ -147,7 +147,7 @@ export default function SnackbarItem({
     event: MouseEvent | TouchEvent | null,
     reason: CloseReason
   ) => {
-    props.snack.onClose(event, reason, props.snack.key);
+    props.snack.onClose?.(event, reason, props.snack.key);
     props.onClose(event, reason, props.snack.key);
   };
 
@@ -248,8 +248,8 @@ export default function SnackbarItem({
       timeout={175}
       in={collapsed}
       onExited={(node) => {
-        props.snack.onExited(node, props.snack.key);
-        props.onExited(node, props.snack.key);
+        props.snack.onExited?.(node, props.snack.key);
+        props.onExited?.(node, props.snack.key);
       }}
     >
       <StyledSnackbar
@@ -269,27 +269,27 @@ export default function SnackbarItem({
           timeout={transitionDuration}
           {...transitionProps}
           onExit={(node) => {
-            props.snack.onExit(node, props.snack.key);
-            props.onExit(node, props.snack.key);
+            props.snack.onExit?.(node, props.snack.key);
+            props.onExit?.(node, props.snack.key);
           }}
           onExiting={(node) => {
-            props.snack.onExiting(node, props.snack.key);
-            props.onExiting(node, props.snack.key);
+            props.snack.onExiting?.(node, props.snack.key);
+            props.onExiting?.(node, props.snack.key);
           }}
           onExited={handleExitedScreen}
           onEnter={(node) => {
-            props.snack.onEnter(node, props.snack.key);
-            props.onEnter(node, props.snack.key);
+            props.snack.onEnter?.(node, props.snack.key);
+            props.onEnter?.(node, props.snack.key);
           }}
           onEntering={(node) => {
-            props.snack.onEntering(node, props.snack.key);
-            props.onEntering(node, props.snack.key);
+            props.snack.onEntering?.(node, props.snack.key);
+            props.onEntering?.(node, props.snack.key);
           }}
           // order matters. first callbacks.onEntered to set entered: true,
           // then handleEntered to check if there's a request for closing
           onEntered={(node, isAppearing) => {
-            props.snack.onEntered(node, isAppearing, props.snack.key);
-            props.onEntered(node, isAppearing, props.snack.key);
+            props.snack.onEntered?.(node, isAppearing, props.snack.key);
+            props.onEntered?.(node, isAppearing, props.snack.key);
             handleEntered(node, isAppearing, props.snack.key);
           }}
         >
