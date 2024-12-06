@@ -28,7 +28,7 @@ export default function Snackbar(
     ...other
   } = props;
 
-  const timerAutoHide = useRef<ReturnType<typeof setTimeout>>();
+  const timerAutoHide = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const handleClose = useEventCallback(onClose);
 

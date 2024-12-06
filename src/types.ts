@@ -33,7 +33,6 @@ export type SnackbarContentCallback =
   | ReactNode
   | ((key: SnackbarKey, message: SnackbarMessage) => ReactNode);
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type TransitionCloseHandler = (
   event: MouseEvent | TouchEvent | null,
   reason: CloseReason,

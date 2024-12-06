@@ -131,7 +131,7 @@ export default function SnackbarItem({
   classes: propClasses,
   ...props
 }: SnackbarItemProps) {
-  const timeout = useRef<ReturnType<typeof setTimeout>>();
+  const timeout = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [collapsed, setCollapsed] = useState(true);
 
   useEffect(
@@ -293,7 +293,7 @@ export default function SnackbarItem({
             handleEntered(node, isAppearing, props.snack.key);
           }}
         >
-          {/* @ts-ignore */}
+          {/* @ts-expect-error strings are fine */}
           {content || (
             <SnackbarContent
               {...ariaAttributes}

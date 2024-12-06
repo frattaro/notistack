@@ -1,6 +1,6 @@
 import { styled } from "@mui/material/styles";
 import clsx from "clsx";
-import { FC, memo } from "react";
+import { FC, JSX, memo } from "react";
 
 import { SNACKBAR_INDENTS } from "./constants";
 import { SnackbarProviderProps } from "./types";

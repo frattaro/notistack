@@ -1,4 +1,5 @@
 import SvgIcon, { SvgIconProps } from "@mui/material/SvgIcon";
+import { JSX } from "react";
 
 import { IconVariant } from "./types";
 

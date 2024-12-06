@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { Component, createContext, useContext } from "react";
+import { Component, JSX, createContext, useContext } from "react";
 import { createPortal } from "react-dom";
 
 import SnackbarContainer from "./SnackbarContainer";
@@ -53,7 +53,7 @@ export class SnackbarProvider extends Component<SnackbarProviderProps, State> {
     super(props);
     this.state = {
       snacks: [],
-      queue: [], // eslint-disable-line react/no-unused-state
+      queue: [],
       contextValue: {
         enqueueSnackbar: this.enqueueSnackbar.bind(this),
         closeSnackbar: this.closeSnackbar.bind(this)
@@ -255,7 +255,7 @@ export class SnackbarProvider extends Component<SnackbarProviderProps, State> {
           ? { ...item, open: false }
           : { ...item, requestClose: true };
       }),
-      queue: queue.filter((item) => item.key !== key) // eslint-disable-line react/no-unused-state
+      queue: queue.filter((item) => item.key !== key)
     }));
   };
 
@@ -279,7 +279,7 @@ export class SnackbarProvider extends Component<SnackbarProviderProps, State> {
    * waiting in the queue (if any). If after this process the queue is not empty, the
    * oldest message is dismissed.
    */
-  // @ts-ignore
+  // @ts-expect-error idk why
   handleExitedSnack: TransitionHandlerProps["onExited"] = (
     event,
     key1,
