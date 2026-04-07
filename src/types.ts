@@ -137,11 +137,10 @@ export interface TransitionHandlerProps {
 /**
  * @category Shared
  */
-export interface SnackbarProps
-  extends StandardProps<
-    Omit<HTMLAttributes<HTMLDivElement>, "content">,
-    SnackbarClassKey
-  > {
+export interface SnackbarProps extends StandardProps<
+  Omit<HTMLAttributes<HTMLDivElement>, "content">,
+  SnackbarClassKey
+> {
   /**
    * The anchor of the `Snackbar`.
    * @default { horizontal: left, vertical: bottom }
@@ -205,8 +204,7 @@ export interface SnackbarProps
  * @category Shared
  */
 export interface SharedProps
-  extends Omit<SnackbarProps, "classes">,
-    Partial<TransitionHandlerProps> {
+  extends Omit<SnackbarProps, "classes">, Partial<TransitionHandlerProps> {
   /**
    * Used to easily display different variant of snackbars. When passed to `SnackbarProvider`
    * all snackbars inherit the `variant`, unless you override it in `enqueueSnackbar` options.

@@ -115,11 +115,10 @@ type RemovedProps =
   | "autoHideDuration" // same as above
   | "preventDuplicate"; // the one recevied from enqueueSnackbar is processed in provider, therefore shouldn't be passed to SnackbarItem */
 
-export interface SnackbarItemProps
-  extends RequiredBy<
-    Omit<SharedProps, RemovedProps>,
-    "onEntered" | "onExited" | "onClose"
-  > {
+export interface SnackbarItemProps extends RequiredBy<
+  Omit<SharedProps, RemovedProps>,
+  "onEntered" | "onExited" | "onClose"
+> {
   snack: Snack;
   dense: ProviderProps["dense"];
   iconVariant: ProviderProps["iconVariant"];

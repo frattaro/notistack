@@ -25,8 +25,10 @@ import {
 type Reducer = (state: State) => State;
 type SnacksByPosition = { [key: string]: Snack[] };
 
-export interface Snack
-  extends RequiredBy<OptionsObject, "key" | "variant" | "anchorOrigin"> {
+export interface Snack extends RequiredBy<
+  OptionsObject,
+  "key" | "variant" | "anchorOrigin"
+> {
   message: SnackbarMessage;
   open: boolean;
   entered: boolean;
