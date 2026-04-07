@@ -9,12 +9,21 @@ updates:
     directory: "/"
     schedule:
       interval: "daily"
+    ignore:
+      - dependency-name: "@types/node"
+        versions: [">=24.0.0"]
+      - dependency-name: "@mui/material"
+        versions: [">7.3.1"]
     groups:
-      vite:
+      react:
         patterns:
-          - "@vitest/*"
-          - "vitest"
-          - "vite"
+          - "react"
+          - "react-dom"
+          - "@types/react"
+          - "@types/react-dom"
       types:
         patterns:
           - "@types/*"
+      emotion:
+        patterns:
+          - "@emotion/*"
