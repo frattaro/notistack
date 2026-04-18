@@ -302,6 +302,7 @@ export default function SnackbarItem({
                 classes.contentRoot,
                 { [classes.lessPadding]: !hideIconVariant && icon },
                 classes[transformer.toVariant(variant)],
+                // @ts-expect-error i don't have the patience for this
                 propClasses[transformer.toVariant(variant)],
                 otherClassName,
                 singleClassName

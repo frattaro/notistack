@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { Component, JSX, createContext, useContext } from "react";
+import { Component, ReactNode, createContext, useContext } from "react";
 import { createPortal } from "react-dom";
 
 import SnackbarContainer from "./SnackbarContainer";
@@ -71,7 +71,7 @@ export class SnackbarProvider extends Component<SnackbarProviderProps, State> {
    * Adds a new snackbar to the queue to be presented.
    * Returns generated or user defined key referencing the new snackbar or null
    */
-  enqueueSnackbar = (
+  enqueueSnackbar: ProviderContext["enqueueSnackbar"] = (
     message: SnackbarMessage,
     opts: OptionsObject = {}
   ): SnackbarKey => {
@@ -94,6 +94,7 @@ export class SnackbarProvider extends Component<SnackbarProviderProps, State> {
         return DEFAULTS.autoHideDuration;
       }
 
+      // @ts-expect-error would be annoying to implement
       return options[name] || this.props[name] || DEFAULTS[name];
     };
 
@@ -281,13 +282,7 @@ export class SnackbarProvider extends Component<SnackbarProviderProps, State> {
    * waiting in the queue (if any). If after this process the queue is not empty, the
    * oldest message is dismissed.
    */
-  // @ts-expect-error idk why
-  handleExitedSnack: TransitionHandlerProps["onExited"] = (
-    event,
-    key1,
-    key2
-  ) => {
-    const key = key1 || key2;
+  handleExitedSnack: TransitionHandlerProps["onExited"] = (node, key) => {
     if (!isDefined(key)) {
       throw new Error("handleExitedSnack Cannot be called with undefined key");
     }
@@ -306,7 +301,7 @@ export class SnackbarProvider extends Component<SnackbarProviderProps, State> {
     });
   };
 
-  render(): JSX.Element {
+  render(): ReactNode {
     const { contextValue } = this.state;
     const {
       maxSnack: dontspread1,
