@@ -4,16 +4,17 @@
 import { StandardProps } from "@mui/material";
 import { ClickAwayListenerProps } from "@mui/material/ClickAwayListener";
 import { SnackbarClassKey } from "@mui/material/Snackbar";
-import { TransitionProps } from "@mui/material/transitions/transition";
+import { TransitionProps } from "@mui/material/transitions";
 import {
   AriaAttributes,
-  Component,
   HTMLAttributes,
   JSXElementConstructor,
   ReactElement,
   ReactNode,
   Ref
 } from "react";
+
+import { SnackbarProvider } from "./SnackbarProvider";
 
 export type RequiredBy<T, K extends keyof T> = Omit<T, K> &
   Required<Pick<T, K>>;
@@ -288,16 +289,10 @@ export interface SnackbarProviderProps extends SharedProps {
   ref?: Ref<SnackbarProvider>;
 }
 
-export class SnackbarProvider extends Component<SnackbarProviderProps> {
-  enqueueSnackbar: ProviderContext["enqueueSnackbar"];
-  closeSnackbar: ProviderContext["closeSnackbar"];
-  render: () => ReactNode;
-}
-
 export interface ProviderContext {
   enqueueSnackbar: (
     message: SnackbarMessage,
     options?: OptionsObject
-  ) => SnackbarKey;
+  ) => SnackbarKey | null;
   closeSnackbar: (key?: SnackbarKey) => void;
 }

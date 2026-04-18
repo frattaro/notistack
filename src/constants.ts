@@ -65,10 +65,11 @@ export const originKeyExtractor = (anchor: Snack["anchorOrigin"]): string =>
  * Omit SnackbarContainer class keys that are not needed for SnackbarItem
  */
 export const omitContainerKeys = (
-  classes: SnackbarProviderProps["classes"]
+  classes: NonNullable<SnackbarProviderProps["classes"]>
 ): SnackbarItemProps["classes"] =>
   Object.keys(classes)
-    .filter((key) => !allClasses.container[key])
+    .filter((key) => !(key in allClasses.container))
+    // @ts-expect-error i don't want to fix it
     .reduce((obj, key) => ({ ...obj, [key]: classes[key] }), {});
 
 export const REASONS: { [key: string]: CloseReason } = {

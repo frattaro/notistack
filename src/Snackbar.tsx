@@ -1,9 +1,9 @@
 import ClickAwayListener from "@mui/material/ClickAwayListener";
+import { useEventCallback } from "@mui/material/utils";
 import { useCallback, useEffect, useRef } from "react";
 
 import { REASONS } from "./constants";
 import { CloseReason, SnackbarProps } from "./types";
-import useEventCallback from "./useEventCallback";
 
 export default function Snackbar(
   props: SnackbarProps & {
@@ -32,24 +32,26 @@ export default function Snackbar(
 
   const handleClose = useEventCallback(onClose);
 
-  const setAutoHideTimer = useEventCallback((autoHideDurationParam) => {
-    if (!onClose || autoHideDurationParam == null) {
-      return;
-    }
+  const setAutoHideTimer = useEventCallback(
+    (autoHideDurationParam?: number) => {
+      if (!onClose || autoHideDurationParam == null) {
+        return;
+      }
 
-    clearTimeout(timerAutoHide.current);
-    timerAutoHide.current = setTimeout(() => {
-      handleClose(null, REASONS.TIMEOUT);
-    }, autoHideDurationParam);
-  });
+      clearTimeout(timerAutoHide.current ?? undefined);
+      timerAutoHide.current = setTimeout(() => {
+        handleClose(null, REASONS.TIMEOUT);
+      }, autoHideDurationParam);
+    }
+  );
 
   useEffect(() => {
     if (open) {
-      setAutoHideTimer(autoHideDuration);
+      setAutoHideTimer(autoHideDuration ?? undefined);
     }
 
     return () => {
-      clearTimeout(timerAutoHide.current);
+      clearTimeout(timerAutoHide.current ?? undefined);
     };
   }, [open, autoHideDuration, setAutoHideTimer]);
 
@@ -58,7 +60,7 @@ export default function Snackbar(
    * or when the user hide the window.
    */
   const handlePause = () => {
-    clearTimeout(timerAutoHide.current);
+    clearTimeout(timerAutoHide.current ?? undefined);
   };
 
   /**
