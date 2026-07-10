@@ -31,8 +31,7 @@ export type CloseReason = "timeout" | "clickaway" | "maxsnack" | "instructed";
 export type SnackbarMessage = string | ReactNode;
 export type SnackbarAction = ReactNode | ((key: SnackbarKey) => ReactNode);
 export type SnackbarContentCallback =
-  | ReactNode
-  | ((key: SnackbarKey, message: SnackbarMessage) => ReactNode);
+  ReactNode | ((key: SnackbarKey, message: SnackbarMessage) => ReactNode);
 
 export type TransitionCloseHandler = (
   event: MouseEvent | TouchEvent | null,
@@ -56,14 +55,9 @@ export type ContainerClassKey =
   | "containerAnchorOriginBottomLeft";
 
 export type VariantClassKey =
-  | "variantSuccess"
-  | "variantError"
-  | "variantInfo"
-  | "variantWarning";
+  "variantSuccess" | "variantError" | "variantInfo" | "variantWarning";
 export type CombinedClassKey =
-  | VariantClassKey
-  | ContainerClassKey
-  | SnackbarClassKey;
+  VariantClassKey | ContainerClassKey | SnackbarClassKey;
 
 export interface SnackbarOrigin {
   vertical: "top" | "bottom";
