@@ -1,10 +1,10 @@
 {
   "name": "notistack-v2-maintained",
-  "version": "2.3.1",
+  "version": "2.3.5",
   "description": "Highly customizable notification snackbars (toasts) that can be stacked on top of each other",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/src/index.js",
+  "module": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "license": "MIT",
   "author": {
     "name": "Anton Frattaroli"
@@ -15,7 +15,7 @@
     "type": "git"
   },
   "scripts": {
-    "build": "npm run clean && tsc --project tsconfig.json",
+    "build": "npm run clean && tsc",
     "clean": "rimraf dist",
     "publish-package": "npm run build && npm publish",
     "lint": "eslint . --max-warnings=0",
